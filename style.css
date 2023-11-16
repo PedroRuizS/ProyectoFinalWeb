@@ -6,3 +6,10 @@
     text-shadow: 3px 3px 7px black;
     color: white;
 }
+img {
+    width: 960px;
+    height: 600px;
+    border: 10px solid #ccc;
+    border-radius: 10px;
+    align-items: center;
+  }
