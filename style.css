@@ -1,0 +1,8 @@
+.back-imagen{
+    background-image: url(img/diablo.jpg);
+
+}
+.texto-resaltado{
+    text-shadow: 3px 3px 7px black;
+    color: white;
+}
