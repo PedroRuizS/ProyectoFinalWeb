@@ -12,4 +12,20 @@ img {
     border: 10px solid #ccc;
     border-radius: 10px;
     align-items: center;
-  }
+    display: flex;
+    justify-content: center;  }
+    
+.h1{
+    animation: anim1 1s infinite linear;
+}   
+@keyframes anim1 {
+    0% {
+        font-size: 40px;
+      }
+      50% {
+        font-size: 80px;
+      }
+      100% {
+        font-size: 50px;
+      }
+} 
