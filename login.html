@@ -7,17 +7,19 @@
 
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+
 </head>
 
-<body>
+<body style="background-color: #26a69a;">
 
   
-  <div class="row">
+  <div style="background-color: white; text-align: center;" class="row">
     <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
-          <input placeholder="Placeholder" id="nombre" type="text" class="validate" maxlength="250">
-          <label for="first_name">Nombre Completo</label>
+          <input placeholder="Nombre Completo" id="nombre" type="text" class="validate" maxlength="250">
+          <label for="nombre">Nombre Completo</label>
         </div>
       </div>
       <div class="row">
@@ -34,11 +36,24 @@
           <label for="email">Email</label>
         </div>
       </div>
-        
+      
       </div>
     </form>
-  </div>          
+    <select id="sexo">
+      <option value="" disabled selected>Selecciona tu sexo</option>
+      <option value="m">Masculino</option>
+      <option value="f">Femenino</option>
+      <option value="x">Otro</option>
+      <option value="z">Prefiero no decirlo</option>
+    </select>
+  </div>
+            
   <script type="text/javascript" src="js/materialize.min.js"></script>
-
+  
+  <br/><br/>
+  <div style="text-align: center;">
+  <input type="submit" name="submit" class="btn btn-primary" value="Registrarme">
+  <input type="reset" name="clear" class="btn btn-primary" value="Borrar">
+  </div>  
   </body>
 </html>
