@@ -14,6 +14,10 @@ img {
     align-items: center;
     display: flex;
     justify-content: center;  }
+select{
+  display: block;
+  width: 100%;
+}    
     
 .h1{
     animation: anim1 1s infinite linear;

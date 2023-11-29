@@ -13,12 +13,13 @@ if ($conexion->connect_error) {
 mysqli_set_charset($conexion, "utf8");
 
 $nombre = $_POST["nombre"];
-$apellidos = $_POST["apellidos"];
+$username = $_POST["username"];
 $email = $_POST["email"];
+$sexo=$_POST["sexo"]
 
-$query = "INSERT INTO usuarios (nombre, apellidos, email) VALUES ('$nombre', '$apellidos', '$email');";
+
+$query = "INSERT INTO usuarios (nombre,  email, username, sexo) VALUES ('$nombre',  '$email', '$sexo', '$username')";
 
 mysqli_query($conexion, $query);
-
 mysqli_close($conexion);
 ?>
