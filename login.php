@@ -65,7 +65,7 @@ session_start();
 
   <br /><br />
   <div style="text-align: center;">
-    <input type="submit" name="submit" class="btn btn-primary" value="Registrarme" onclick="window.location.href='borrar.html'">
+    <input type="submit" name="submit" class="btn btn-primary" value="Registrarme">
     <input type="reset" name="clear" class="btn btn-primary" value="Borrar" onclick="window.location.href='borrar.html'">
   </div>
 </body>
