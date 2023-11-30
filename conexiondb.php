@@ -1,7 +1,7 @@
 <?php
 $host_db = "localhost";
 $user_db = "id21596495_pedroadmin";
-$pass_db = "PasswordBD1!";
+$pass_db = "PasswordDB1!";
 $db_name = "id21596495_proyecto";
 $tbl_name = "usuarios";
 

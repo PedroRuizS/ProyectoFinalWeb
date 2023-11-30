@@ -1,5 +1,6 @@
 <?php
 echo "Los datos del formulario son: " . print_r($_POST, true);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,7 @@ echo "Los datos del formulario son: " . print_r($_POST, true);
 </head>
 <body>
     <h1>Los datos de la base son</h1>
+<?php
 
 // Conectar a la base de datos
 include "conexiondb.php";
@@ -31,9 +33,8 @@ if (mysqli_num_rows($result) > 0) {
 // Cerrar la conexión a la base de datos
 mysqli_close($conexion);
 
-
+?>
     
 
 </body>
 </html>
-?>
