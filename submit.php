@@ -40,6 +40,6 @@ VALUES(
 
 // Display success message and welcome message
 echo "<br />" . "<h2>" . "Usuario creado exitosamente!" . "</h2>";
-echo "<h4>" . "Bienvenido: " . $nombre . "</h4>" . "\n\n";
+echo "<h4>" . "Bienvenido: " . $username . "</h4>" . "\n\n";
 echo "<h5>" . "<a href='./login.php'>Registro</a>" . "</h5>";
 ?>

@@ -1,69 +1,46 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
-
-
 <html lang="en">
-
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Proyecto Final Login</title>
-
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
-  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
- <link rel="stylesheet" href="style.css">
+  <title>Login</title>
 </head>
+<body>
+<!-- me costo un huevo hacer que esa madre de el insert de el formulario sirviera, por eso hice una funcion -->
+<!-- que insertara datos predeterminados, alch no lo quise quitar por si acaso pero si quite el boton que hace el insert -->
+  <?php
+    include "conexiondb.php";
+    mysqli_set_charset($conexion, 'utf8');
 
-<body style="background-color: #26a69a;">
+    $datos = array(
+      'id' => 1,
+      'nombre' => 'Juan papu',
+      'telefono' => '1234567890',
+      'correo' => 'juan.papu@correo.com',
+      'nombre_usuario' => 'juanpapu',
+      'password' => '123456'
+    );
 
+    function insertar_datos_predeterminados($datos) {
+      $consulta = "INSERT INTO usuarios (id, nombre, telefono, correo, nombre_usuario, password) VALUES (?, ?, ?, ?, ?, ?)";
+      $stmt = $conexion->prepare($consulta);
+      $stmt->bind_param("issssi", $datos['id'], $datos['nombre'], $datos['telefono'], $datos['correo'], $datos['nombre_usuario'], $datos['password']);
+      $stmt->execute();
+    }
+  ?>
 
-<div style="background-color: white; text-align: center;">
-  <form action="submit.php" method="post" class="col s12">
-    <div class="row">
-      <div class="input-field col s6">
-        <input placeholder="Nombre Completo" id="nombre" type="text" class="validate" maxlength="250" name="nombre">
-        <label for="nombre">Nombre Completo</label>
-      </div>
-      <div class="input-field col s6">
-        <input placeholder="Telefono" id="telefono" type="text" class="validate" maxlength="250"  name="telefono">
-        <label for="telefono">Telefono</label>
-      </div>
-      <div class="input-field col s6">
-        <input placeholder="Nombre de Usuario" id="username" type="text" class="validate" maxlength="250"  name="username">
-        <label for="nombre">Nombre de Usuario</label>
-      </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="password" type="password" class="validate" maxlength="10"  name="contrasena">
-        <label for="password">Password</label>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-          <input id="email" type="email" class="validate"  name="correo">
-          <label for="email">Email</label>
-        </div>
-      </div>
-    </div>
-
-  </form>
-
-
-
-</div>
-
-  <script type="text/javascript" src="js/materialize.min.js"></script>
-
-  <br /><br />
-  <div style="text-align: center;">
-    <input type="submit" name="submit" class="btn btn-primary" value="Registrarme" onclick="window.location.href='borrar.php'">
+  <form action="submit.php" method="post">
+    <input type="text" name="nombre" placeholder="Nombre" class="validate">
+    <input type="text" name="telefono" placeholder="Teléfono" class="validate">
+    <input type="text" name="correo" placeholder="Correo electrónico" class="validate">
+    <input type="text" name="nombre_usuario" placeholder="Nombre de usuario class="validate"">
+    <input type="password" name="password" placeholder="Contraseña class="validate"">
+    <button type="submit" class="btn btn-primary">Enviar</button>
     <input type="reset" name="clear" class="btn btn-primary" value="Borrar" onclick="window.location.href='borrar.php'">
 
-  </div>
-</body>
 
+<!-- <input type="button" value="Insertar datos predeterminados" onclick="insertar_datos_predeterminados()"> -->
+  </form>
+
+</body>
 </html>
