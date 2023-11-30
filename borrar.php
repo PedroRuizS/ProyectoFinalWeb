@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>datos</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>datos</title>
 </head>
 <body>
 
@@ -32,12 +31,14 @@ mysqli_close($conexion);
 ?>
 
 <h2>ingresa el id de el entry que quieres borrar</h2>
-  <input type="number" name="id" placeholder="ID">
- 
- 
-<?php 
-  $id = $_POST['id'];
 
+<?php
+
+if (!empty($_POST)) {
+  include "conexiondb.php";
+  mysqli_set_charset($conexion, 'utf8');
+
+  $id = $_POST['id'];
   $consulta = "DELETE FROM usuarios WHERE id = $id";
   $resultado = $conexion->query($consulta);
 
@@ -46,12 +47,16 @@ mysqli_close($conexion);
   } else {
     echo "Error al borrar la entrada: " . $conexion->error;
   }
+
+  mysqli_close($conexion);
+}
+
 ?>
 
 <form action="borrar.php" method="post">
   <input type="number" name="id" placeholder="ID">
   <button type="submit">Borrar</button>
 </form>
-
+<a href="login.php">regresar al login</a>
 </body>
 </html>
