@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Login</title>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+  <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+ <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <!-- me costo un huevo hacer que esa madre de el insert de el formulario sirviera, por eso hice una funcion -->
@@ -30,11 +34,11 @@
   ?>
 
   <form action="submit.php" method="post">
-    <input type="text" name="nombre" placeholder="Nombre" class="validate">
-    <input type="text" name="telefono" placeholder="Teléfono" class="validate">
-    <input type="text" name="correo" placeholder="Correo electrónico" class="validate">
-    <input type="text" name="nombre_usuario" placeholder="Nombre de usuario class="validate"">
-    <input type="password" name="password" placeholder="Contraseña class="validate"">
+    <input  class="validate" type="text" name="nombre" placeholder="Nombre" >
+    <input  class="validate" type="text" name="telefono" placeholder="Teléfono">
+    <input class="validate" type="text" name="correo" placeholder="Correo electrónico">
+    <input class="validate" type="text" name="nombre_usuario" placeholder="Nombre de usuario">
+    <input class="validate" type="password" name="password" placeholder="Contraseña">
     <button type="submit" class="btn btn-primary">Enviar</button>
     <input type="reset" name="clear" class="btn btn-primary" value="Borrar" onclick="window.location.href='borrar.php'">
 

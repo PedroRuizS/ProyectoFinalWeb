@@ -1,6 +1,4 @@
-<?php
-echo "Los datos del formulario son: " . print_r($_POST, true);
-?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,32 +7,51 @@ echo "Los datos del formulario son: " . print_r($_POST, true);
     <title>datos</title>
 </head>
 <body>
-    <h1>Los datos de la base son</h1>
+
 <?php
 
-// Conectar a la base de datos
 include "conexiondb.php";
-mysqli_set_charset($conexion, 'utf8');
+?>
 
-// Ejecutar la consulta SQL
+<h1>los datos de la base son</h1>
+
+<?php
+mysqli_set_charset($conexion, 'utf8');
 $result = mysqli_query($conexion, "SELECT * FROM usuarios");
 
-// Iterar sobre los resultados
 if (mysqli_num_rows($result) > 0) {
   while ($row = mysqli_fetch_assoc($result)) {
-    // Mostrar los datos
     echo $row['id'] . " " . $row['nombre'] . " " . $row['telefono'] . " " . $row['correo'] . " " . $row['nombre_usuario'] . " " . $row['password'] . "<br />";
   }
 } else {
-  // No hay resultados
-  echo "No hay resultados";
+  echo "No hay nada q mostrar";
 }
 
-// Cerrar la conexión a la base de datos
 mysqli_close($conexion);
 
 ?>
-    
+
+<h2>ingresa el id de el entry que quieres borrar</h2>
+  <input type="number" name="id" placeholder="ID">
+ 
+ 
+<?php 
+  $id = $_POST['id'];
+
+  $consulta = "DELETE FROM usuarios WHERE id = $id";
+  $resultado = $conexion->query($consulta);
+
+  if ($resultado) {
+    echo "La entrada se ha borrado correctamente";
+  } else {
+    echo "Error al borrar la entrada: " . $conexion->error;
+  }
+?>
+
+<form action="borrar.php" method="post">
+  <input type="number" name="id" placeholder="ID">
+  <button type="submit">Borrar</button>
+</form>
 
 </body>
 </html>

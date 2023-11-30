@@ -11,5 +11,5 @@ if (mysqli_connect_errno()) {
 echo "Fallo";
 exit();
 }
-echo "si salio papu";
+
 ?>
