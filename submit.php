@@ -1,44 +1,45 @@
 <?php
+// Connect to the database
 include "conexiondb.php";
-mysqli_set_charset($conexion,'utf8');
+mysqli_set_charset($conexion, 'utf8');
 
+// Get form data
+$nombre = $_POST['nombre'];
+$telefono = $_POST['telefono'];
+$correo = $_POST['correo'];
+$contrasena = $_POST['contrasena'];
+$username = $_POST['username'];
 
-
-$buscarUsuario = "SELECT * FROM usuarios where nombre_usuario = '$_POST[nombre_usuario]'";
-
-$result = $conexion -> query($buscarUsuario);
+// Check if username already exists
+$buscarUsuario = "SELECT * FROM usuarios WHERE nombre = '$nombre'";
+$result = $conexion->query($buscarUsuario);
 $count = mysqli_num_rows($result);
 
-if($count ==1 ){
-    echo'El nombre se usuario ya a sido ocupado';
-    header('Location: ./login.php');
-    
-}else{
-    mysqli_query($conexion, "INSERT INTO usuarios (
-    nombre,
-    username,
-    email,
-    sexo,
-    fecha_registro,
-    permisos,
-    id
-    password)
-        VALUES(
-     $nombre = $_POST["nombre"];
-     $username = $_POST["username"];
-     $email = $_POST["email"];
-     $sexo=$_POST["sexo"] 
-     date('Y-m-d'),
-     1,
-     (SELECT MAX(id) + 1 FROM usuarios)
-    )");
-
-echo "<br />" . "<h2>" . "Usuario Creado Exitosamente!" . "</h2>";
-echo "<h4>" . "Bienvenido: " . $_POST['usuario'] . "</h4>" . "\n\n";
-echo "<h5>" . "<a href='./login.php'>Registro</a>" . "</h5>";
-
+if ($count == 1) {
+  echo 'El nombre de usuario ya ha sido ocupado';
+  header('Location: ./login.php');
+  exit;
 }
 
+// Insert new user into the database
+mysqli_query($conexion, "INSERT INTO usuarios (
+  nombre,
+  telefono,
+  correo,
+  nombre_usuario,
+  password
+  )
+VALUES(
+  '$nombre',
+  '$telefono',
+  '$correo',
+  '$username',
+  '$contrasena'
+  
+)");
 
-
+// Display success message and welcome message
+echo "<br />" . "<h2>" . "Usuario creado exitosamente!" . "</h2>";
+echo "<h4>" . "Bienvenido: " . $nombre . "</h4>" . "\n\n";
+echo "<h5>" . "<a href='./login.php'>Registro</a>" . "</h5>";
 ?>

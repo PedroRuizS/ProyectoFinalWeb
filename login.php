@@ -22,42 +22,37 @@ session_start();
 
 
 <div style="background-color: white; text-align: center;">
-  <form action="conexiondb.php" method="post" class="col s12">
+  <form action="submit.php" method="post" class="col s12">
     <div class="row">
       <div class="input-field col s6">
-        <input placeholder="Nombre Completo" id="nombre" type="text" class="validate" maxlength="250">
+        <input placeholder="Nombre Completo" id="nombre" type="text" class="validate" maxlength="250" name="nombre">
         <label for="nombre">Nombre Completo</label>
       </div>
       <div class="input-field col s6">
-        <input placeholder="Nombre de Usuario" id="username" type="text" class="validate" maxlength="250">
+        <input placeholder="Telefono" id="telefono" type="text" class="validate" maxlength="250"  name="telefono">
+        <label for="telefono">Telefono</label>
+      </div>
+      <div class="input-field col s6">
+        <input placeholder="Nombre de Usuario" id="username" type="text" class="validate" maxlength="250"  name="username">
         <label for="nombre">Nombre de Usuario</label>
       </div>
     </div>
     <div class="row">
       <div class="input-field col s12">
-        <input id="password" type="password" class="validate">
+        <input id="password" type="password" class="validate" maxlength="10"  name="contrasena">
         <label for="password">Password</label>
       </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-        <input id="email" type="email" class="validate">
-        <label for="email">Email</label>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" class="validate"  name="correo">
+          <label for="email">Email</label>
+        </div>
       </div>
     </div>
+
   </form>
 
-  <div class="row">
-    <div class="col s12">
-      <select id="sexo">
-        <option value="">Selecciona tu sexo</option>
-        <option value="m">Masculino</option>
-        <option value="f">Femenino</option>
-        <option value="x">Otro</option>
-        <option value="z">Prefiero no decirlo</option>
-      </select>
-    </div>
-  </div>
+
 
 </div>
 
@@ -65,8 +60,9 @@ session_start();
 
   <br /><br />
   <div style="text-align: center;">
-    <input type="submit" name="submit" class="btn btn-primary" value="Registrarme">
-    <input type="reset" name="clear" class="btn btn-primary" value="Borrar" onclick="window.location.href='borrar.html'">
+    <input type="submit" name="submit" class="btn btn-primary" value="Registrarme" onclick="window.location.href='borrar.php'">
+    <input type="reset" name="clear" class="btn btn-primary" value="Borrar" onclick="window.location.href='borrar.php'">
+
   </div>
 </body>
 
