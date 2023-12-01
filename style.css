@@ -22,6 +22,12 @@ select{
 .h1{
     animation: anim1 1s infinite linear;
 }   
+.h2{
+  
+    animation: anim1 1s infinite linear;
+    animation-iteration-count: 1;
+  
+}
 @keyframes anim1 {
     0% {
         font-size: 40px;
