@@ -33,7 +33,7 @@
     }
   ?>
 <h1 class="h2" style="text-shadow: 10px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; text-align: center;color: aliceblue;">Login</h1>
-<br><br><br> 
+<br> 
 <form action="submit.php" method="post">
 
     <div style="display: flex; justify-content: center; background-color: aliceblue;"> 
@@ -69,6 +69,7 @@
 </div>
 
 <!-- <input type="button" value="Insertar datos predeterminados" onclick="insertar_datos_predeterminados()"> -->
+<a href="index.html">index</a>
   </form>
 
 </body>

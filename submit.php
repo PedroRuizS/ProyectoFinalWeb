@@ -13,6 +13,7 @@ $result = $conexion->query($buscarUsuario);
 $count = mysqli_num_rows($result);
 
 if ($count == 1) {
+  
   echo 'El nombre de usuario ya ha sido ocupado';
   header('Location: ./submit.php');
   exit;
@@ -40,3 +41,6 @@ echo "<br />" . "<h2>" . "Usuario creado exitosamente!" . "</h2>";
 echo "<h4>" . "Bienvenido: " . $username . "</h4>" . "\n\n";
 echo "<h5>" . "<a href='./login.php'>Registro</a>" . "</h5>";
 ?>
+<link rel="shortcut icon" href="img/favicon.png" type="image/x-icon">
+<img src="img/club-penguin-dance (1).gif" alt="">
+<h1></h1>
